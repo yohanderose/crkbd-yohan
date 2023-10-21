@@ -27,25 +27,27 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
 extern rgblight_config_t rgblight_config;
 void                     keyboard_post_init_user(void) {
     rgblight_config.hue = 140; // between cyan and azure
-    rgblight_config.val = 63;
     rgblight_config.sat = 255;
+    rgblight_config.val = 63; // 25% brightness
 }
 
 layer_state_t layer_state_set_user(layer_state_t state) {
+	// get current brightness
+	uint8_t current_brightness = rgblight_get_val();
     switch (biton32(state)) {
         case 1:
-			// Purple
+			// Violet 
             rgblight_enable_noeeprom();
-            rgblight_sethsv_noeeprom(HSV_PURPLE);
+			rgblight_sethsv_noeeprom(180, 255, current_brightness);
             break;
         case 2:
-            // Blue
+            // Rose
             rgblight_enable_noeeprom();
-            rgblight_sethsv_noeeprom(HSV_BLUE);
+            rgblight_sethsv_noeeprom(222, 255, current_brightness);
             break;
         default:
             rgblight_enable_noeeprom();
-            rgblight_sethsv_noeeprom(HSV_CYAN);
+            rgblight_sethsv_noeeprom(140, 255, current_brightness);
             break;
     }
     return state;
