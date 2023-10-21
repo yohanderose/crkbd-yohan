@@ -2,7 +2,8 @@
 // SPDX-License-Identifier: GPL-2.0-or-later
 
 // layer switching
-#define TAPPING_TERM 120
+#define TAPPING_TERM 150
+#define TAPPING_TERM_PER_KEY
 #define PERMISSIVE_HOLD
 
 // power management
