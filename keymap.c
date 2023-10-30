@@ -21,8 +21,8 @@ uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
             return TAPPING_TERM - 25;
 		case LT(1, KC_SPC):
 			return TAPPING_TERM - 25;
-		case LT(2, KC_SPC):
-			return TAPPING_TERM - 25;
+		/* case LT(2, KC_SPC): */
+		/* 	return TAPPING_TERM - 25; */
         default:
             return TAPPING_TERM;
     }
